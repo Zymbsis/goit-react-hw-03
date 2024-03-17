@@ -1,7 +1,7 @@
 import css from './ContactList.module.css';
 import Contact from '../Contact/Contact';
 
-const ContactList = ({ contactList, deletingContact }) => {
+const ContactList = ({ contactList, deletingContact, setter }) => {
   return (
     <ul className={css.list}>
       {contactList.map(contact => {
@@ -10,6 +10,7 @@ const ContactList = ({ contactList, deletingContact }) => {
             <Contact
               contact={contact}
               deletingContact={deletingContact}
+              setter={setter}
             ></Contact>
           </li>
         );

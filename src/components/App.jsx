@@ -48,6 +48,7 @@ function App() {
         <ContactList
           contactList={visibleContact}
           deletingContact={deleteContact}
+          setter={setWantedContact}
         ></ContactList>
       </div>
     </div>

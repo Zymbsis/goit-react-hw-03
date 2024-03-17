@@ -3,6 +3,7 @@ import { useId } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
+import { FaArrowRight } from 'react-icons/fa';
 
 const ContactForm = ({ addingContact }) => {
   const formId = {
@@ -45,7 +46,9 @@ const ContactForm = ({ addingContact }) => {
           id={formId.number}
         />
         <ErrorMessage className={css.error} name="number" as="span" />
-        <button type="submit">Add contact</button>
+        <button className={css.addButton} type="submit">
+          <span>Add contact</span> <FaArrowRight className={css.icon} />
+        </button>
       </Form>
     </Formik>
   );
