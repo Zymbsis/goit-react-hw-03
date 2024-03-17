@@ -1,0 +1,30 @@
+.container {
+  width: 1158px;
+  padding: 50px 15px;
+  margin: 0 auto;
+}
+
+.main-title {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.main-title {
+  span {
+    color: cadetblue;
+  }
+}
+
+.phonebook-wrapper {
+  display: flex;
+  gap: 15px;
+  border: 1px solid darkgray;
+}
+
+.form-and-filter-wrapper {
+  width: calc((100% - 15px) /2);
+  border: 1px solid darkgray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

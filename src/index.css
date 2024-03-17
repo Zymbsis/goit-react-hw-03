@@ -4,11 +4,8 @@
   font-weight: 400;
   color-scheme: light dark;
   color: #242424;
-  background-color: #fbfbfb;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(315deg, #5F9FA0, #B7E5F2);
+  height: 100%;
 }
 
 h1,
