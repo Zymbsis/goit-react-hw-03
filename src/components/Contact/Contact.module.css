@@ -6,6 +6,11 @@
   text-transform: capitalize;
 }
 
+.name,
+.number {
+  max-width: 360px;
+}
+
 .contactIcon {
   color: #5f9ea0;
   width: 20px;

@@ -10,14 +10,14 @@ const Contact = ({
 }) => {
   return (
     <>
-      <h2 className={css.contact}>
+      <div className={css.contact}>
         <FaUser className={css.contactIcon} />
-        {name}
-      </h2>
-      <p className={css.contact}>
+        <h2 className={css.name}>{name}</h2>
+      </div>
+      <div className={css.contact}>
         <FaPhone className={css.contactIcon} />
-        {number}
-      </p>
+        <p className={css.number}>{number}</p>
+      </div>
       <button
         className={css.button}
         type="button"
