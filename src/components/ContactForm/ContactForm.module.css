@@ -10,18 +10,26 @@
     padding-left: 5px;
     font-weight: 500;
   }
-
-  label:last-of-type {
-    margin-top: 15px;
-  }
 }
 
 .input {
   height: 50px;
   padding-left: 15px;
-  border: 1px solid cadetblue;
   border-radius: 10px;
   font-size: 20px;
+  border: 1px solid cadetblue;
+  margin-bottom: 40px;
+}
+
+.invalid {
+  composes: input;
+  border: 1px solid red;
+  margin-bottom: 6px;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
 }
 
 .addButton {
@@ -74,8 +82,4 @@
 
 .addButton:active {
   transform: scale(0.95);
-}
-
-.error {
-  color: red
 }
