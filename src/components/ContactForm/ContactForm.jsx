@@ -1,10 +1,29 @@
 import css from './ContactForm.module.css';
 import { useId } from 'react';
-import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
+import { Formik, Form, useField } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 import { FaArrowRight } from 'react-icons/fa';
 import clsx from 'clsx';
+
+const MyInput = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <>
+      <label htmlFor={props.id}>{label}</label>
+      <input
+        className={clsx(css.input, {
+          [css.invalid]: meta.touched && meta.error,
+        })}
+        {...field}
+        {...props}
+      />
+      {meta.touched && meta.error ? (
+        <span className={css.error}>{meta.error}</span>
+      ) : null}
+    </>
+  );
+};
 
 const ContactForm = ({ addingContact }) => {
   const formId = {
@@ -35,43 +54,13 @@ const ContactForm = ({ addingContact }) => {
       onSubmit={handleSubmit}
       validationSchema={FeedbackSchema}
     >
-      {({ errors, touched }) => (
-        <Form className={css.form}>
-          <>
-            <label htmlFor={formId.name}>Name</label>
-            <Field
-              className={clsx(css.input, {
-                [css.invalid]: errors.name && touched.name,
-              })}
-              type="text"
-              name="name"
-              id={formId.name}
-            />
-            <ErrorMessage name="name" className={css.error} component="span" />
-          </>
-
-          <>
-            <label htmlFor={formId.number}>Number</label>
-            <Field
-              className={clsx(css.input, {
-                [css.invalid]: errors.number && touched.number,
-              })}
-              type="tel"
-              name="number"
-              id={formId.number}
-            />
-            <ErrorMessage
-              name="number"
-              className={css.error}
-              component="span"
-            />
-          </>
-
-          <button className={css.addButton} type="submit">
-            <span>Add contact</span> <FaArrowRight className={css.icon} />
-          </button>
-        </Form>
-      )}
+      <Form className={css.form}>
+        <MyInput label="Name" name="name" type="text" id={formId.name} />
+        <MyInput label="Number" name="number" type="tel" id={formId.number} />
+        <button className={css.addButton} type="submit">
+          <span>Add contact</span> <FaArrowRight className={css.icon} />
+        </button>
+      </Form>
     </Formik>
   );
 };
